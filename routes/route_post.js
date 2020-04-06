@@ -3,7 +3,7 @@ const api = require('../api/api');
 const multer = require('multer');
 const multerDiskStorage_posts = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '../src/fileUploads')
+        cb(null, '../ppl-frontend/src/fileUploads')
     },
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now())
@@ -12,7 +12,7 @@ const multerDiskStorage_posts = multer.diskStorage({
 const upload_post = multer({ storage: multerDiskStorage_posts });
 const multerDiskStorage_thumb = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '../public/images/category')
+        cb(null, '../ppl-frontend/public/images/category')
     },
     filename: function (req, file, cb) {
         cb(null, req.body.newcategory)
