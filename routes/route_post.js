@@ -33,13 +33,14 @@ router.post('/submit', upload_post.single('image_file'), async (req, res) => {
 router.get('/get/all', async (req, res) => {
     console.log('all post backend call accepted');
     try {
-        if (req.query._id === undefined) {
+        if (req.query === undefined) {
+            
             let data = null;
-            //console.log('null side provoked', req.query)
+            console.log('null side provoked', req.query)
             let result = await api.post_get_all(data);
             res.status(200).send(result);
         } else {
-            //console.log('not null side provoked', req.query)
+            console.log('not null side provoked', req.query)
             let data = req.query;
             let result = await api.post_get_all(data);
             res.status(200).send(result);
