@@ -3,8 +3,8 @@ const post_schema = require('../schema/post_schema');
 module.exports = function(data){
     return new Promise(
         (resolve, reject) => {
-            let query = {}, pageSize, pageStart;
-            // console.log(data);
+            let query = {}, fromElement, uptoElement;
+            console.log(data);
             if(data !== null){
                 query = data.dbQuery;
                 fromElement = Number(data.fromElement);
@@ -19,7 +19,7 @@ module.exports = function(data){
                         
                         resolve({
                             totalElements: result.length,
-                            data: result.slice(fromElement, uptoElement +1)
+                            data: result.slice(fromElement, uptoElement)
                         });
                         
                     }
